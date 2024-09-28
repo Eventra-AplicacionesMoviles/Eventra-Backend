@@ -26,17 +26,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                .requestMatchers(
-                                        "/user-service/v3/api-docs/swagger-config",
-                                        "/v3/api-docs",
-                                        "/swagger-ui/**",
-                                        "/swagger-ui.html",
-                                        "/api/auth/**",
-                                        "/api/**",
-                                        "/user-service/v3/api-docs",
-                                        "/swagger-resources/**",
-                                        "/webjars/**").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().permitAll() // Permitir todas las solicitudes sin autenticación
                 )
                 .sessionManagement(sessionManager->
                         sessionManager

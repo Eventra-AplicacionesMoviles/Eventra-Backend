@@ -80,7 +80,7 @@ public class ApiGatewayApplication {
 				.route(r -> r.path("/api/notifications/{id}").and().method(HttpMethod.GET).uri("lb://notification-service"))
 				.route(r -> r.path("/api/notifications/{id}").and().method(HttpMethod.PUT).uri("lb://notification-service"))
 				.route(r -> r.path("/api/notifications/{id}").and().method(HttpMethod.DELETE).uri("lb://notification-service"))
-				// Rutas para notification-service
+				// Rutas para payment-service
 				.route(r -> r.path("/payment-service/v3/api-docs").and().method(HttpMethod.GET).uri("lb://payment-service"))
 				.route(r -> r.path("/api/payments").and().method(HttpMethod.POST).uri("lb://payment-service"))
 				.route(r -> r.path("/api/payments").and().method(HttpMethod.GET).uri("lb://payment-service"))
