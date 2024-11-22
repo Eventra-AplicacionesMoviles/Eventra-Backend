@@ -16,4 +16,3 @@ public class PaymentResponse {
     private StatusResponse status;
     private LocalDateTime paymentDate;
 }
-

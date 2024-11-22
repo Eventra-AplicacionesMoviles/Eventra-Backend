@@ -1,9 +1,11 @@
 package pe.edu.upc.eventra.payment_service.controller;
 
+import com.mercadopago.resources.preference.Preference;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.eventra.payment_service.model.dtos.PaymentRequest;
 import pe.edu.upc.eventra.payment_service.model.dtos.PaymentResponse;
@@ -23,6 +25,12 @@ public class PaymentController {
     @Operation(summary = "Add a new Payment", description = "Adds a new Payment to the system")
     public PaymentResponse addPayment(@RequestBody PaymentRequest paymentRequest) {
         return paymentService.addPayment(paymentRequest);
+    }
+
+    @PostMapping("/process-payment")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Preference> processPayment(@RequestBody PaymentRequest paymentRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(paymentService.processPayment(paymentRequest));
     }
 
     @GetMapping

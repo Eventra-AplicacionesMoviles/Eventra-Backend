@@ -15,4 +15,3 @@ public class PaymentRequest {
     private Long statusId;
     private LocalDateTime paymentDate;
 }
-

@@ -10,4 +10,3 @@ public interface ReservationClient {
     @GetMapping("/api/reservations/{id}")
     ReservationResponse getReservationById(@PathVariable("id") long id);
 }
-
